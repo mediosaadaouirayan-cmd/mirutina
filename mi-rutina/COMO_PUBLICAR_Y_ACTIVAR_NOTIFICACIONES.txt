@@ -1,0 +1,20 @@
+MI RUTINA - Publicación y notificaciones reales en iPhone
+
+IMPORTANTE: Esta versión incluye código Web Push real, NO es suficiente subir los archivos mediante "drag and drop" o "Deploy manually" de Netlify, ya que las funciones necesitan compilarse con npm.
+
+1. Crea un repositorio PRIVADO en GitHub y sube TODO el contenido de esta carpeta, incluidos package.json, netlify.toml y netlify/functions.
+2. En Netlify -> Add new project -> Import an existing project -> selecciona el repositorio de GitHub.
+3. En el ordenador, con Node.js instalado, ejecuta: npx web-push generate-vapid-keys
+4. En Netlify -> Project configuration -> Environment variables, crea:
+   VAPID_PUBLIC_KEY = la public key mostrada
+   VAPID_PRIVATE_KEY = la private key mostrada (SECRETA, NO LA SUBAS A GITHUB)
+   VAPID_SUBJECT = mailto:tu-email@ejemplo.com (usa tu dirección real)
+   Asegura que tienen scope Functions.
+5. Haz un nuevo deploy de producción tras añadir las variables.
+6. En Netlify -> Functions debe aparecer send-reminders como Scheduled.
+7. Abre la URL HTTPS de Netlify en Safari de tu iPhone, pulsa Compartir -> Añadir a pantalla de inicio.
+8. Abre la app DESDE SU ICONO (no desde una pestaña de Safari), baja a Tus recordatorios y pulsa Activar notificaciones. Acepta el permiso de iOS. Guarda los horarios (intervalos de 15 minutos).
+
+El código incluye: peso, desayuno, entrenamiento, comida, merienda, cena y creatina, con valores predeterminados editables en la pantalla. Los envíos usan la zona Europe/Madrid y funcionan cuando la app está cerrada, siempre que Netlify ejecute la función, Apple mantenga la suscripción y el dispositivo reciba Push.
+
+LIMITACIONES: Envíos no garantizados al minuto (comprobación cada 15 min). En iPhone se exige iOS 16.4 o posterior y app instalada en inicio. Permisos y variables no pueden activarse desde el ZIP. La PWA no se sincroniza entre móviles y los registros de entrenamiento/peso siguen guardándose únicamente en el navegador. Verifica funcionamiento con un aviso de prueba después de desplegar; no se ha verificado aquí la entrega de Push real.

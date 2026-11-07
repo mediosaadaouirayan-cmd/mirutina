@@ -1,0 +1,13 @@
+MI RUTINA · INSTALACIÓN EN IPHONE
+
+1. Publica TODOS los archivos y la carpeta icons en un alojamiento HTTPS, conservando la estructura.
+2. Abre la dirección HTTPS publicada con Safari en tu iPhone.
+3. Toca Compartir y selecciona «Añadir a pantalla de inicio» (o «Agregar a pantalla de inicio»).
+4. Confirma «Añadir» y abre Mi rutina desde su icono.
+5. La app conserva menú y registros localmente en ese dispositivo. No hay sincronización entre equipos.
+
+IMPORTANTE: abrir index.html desde la app Archivos o como file:// NO instala la PWA.
+La versión permite abrirse sin internet DESPUÉS de una primera visita con conexión en HTTPS.
+Las notificaciones programadas NO están implementadas. Para avisos fiables con la app cerrada hacen falta permisos y un servicio de notificaciones push con programación del lado del servidor; en iOS web push requiere la app añadida a la pantalla de inicio y compatibilidad del sistema.
+
+CONSERVACIÓN DE DATOS: el archivo HTML abierto antes en el ordenador y la PWA en HTTPS usan almacenes independientes. Exporta tus registros desde la versión original para conservar una copia; esta versión aún no dispone de importación.

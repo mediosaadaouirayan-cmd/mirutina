@@ -1,0 +1,13 @@
+{
+  "name": "mi-rutina-rayan",
+  "private": true,
+  "version": "1.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "node -e \"console.log('PWA lista')\""
+  },
+  "dependencies": {
+    "@netlify/blobs": "^9.0.0",
+    "web-push": "^3.6.7"
+  }
+}
